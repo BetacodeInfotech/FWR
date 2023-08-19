@@ -41,10 +41,10 @@ const OnBoardScreen = props => {
 
       <View style={styles.imagePosition}>
         <Text style={styles.Header}>
-          Coffee so good, your taste buds will love it.
+          Food so good, your taste buds will love it.
         </Text>
         <Text style={styles.body}>
-          The best grain, the finest roast, the powerful flavor.
+        The best meals, the finest snacks, the powerful flavour.
         </Text>
         <Btn
           Press={() => {
