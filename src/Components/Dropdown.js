@@ -1,12 +1,27 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet, Dimensions} from 'react-native';
 import React from 'react';
 import {Dropdown} from 'react-native-element-dropdown';
 import Colors from '../Const/Colors';
 
-const Dropdownn = ({data, placeholder, value, onFocus, onBlur, onChange ,containerStye}) => {
+const {width, height} = Dimensions.get('screen');
+
+const Dropdownn = ({
+  data,
+  placeholder,
+  value,
+  onFocus,
+  onBlur,
+  onChange,
+  containerStye,
+}) => {
   return (
     <View
-      style={{...containerStye,...styles.shadow,backgroundColor:Colors.bisque, width: 350,}}>
+      style={{
+        ...containerStye,
+        ...styles.shadow,
+        backgroundColor: Colors.bisque,
+        width: width - 60,
+      }}>
       <Dropdown
         style={styles.dropdown}
         placeholderStyle={styles.placeholderStyle}
@@ -59,7 +74,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 15,
     marginBottom: 29,
-
   },
   dropdown: {
     height: 50,
@@ -68,30 +82,23 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 8,
   },
-  // icon: {
-  //   marginRight: 5,
-  // },
+
   label: {
-    position: 'absolute',
-    backgroundColor:'white',
-    // left: 22,
+    backgroundColor: 'white',
     top: 10,
-    // zIndex: 999,
-    // paddingHorizontal: 8,
     fontSize: 14,
   },
+
   placeholderStyle: {
     fontSize: 16,
     paddingHorizontal: 5,
   },
+
   selectedTextStyle: {
     fontSize: 16,
     marginLeft: 5,
   },
-  // iconStyle: {
-  //   width: 20,
-  //   height: 20,
-  // },
+
   inputSearchStyle: {
     height: 40,
     fontSize: 16,

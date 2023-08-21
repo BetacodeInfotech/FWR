@@ -1,30 +1,32 @@
-import { 
-  StyleSheet, 
-  Text, 
-  View, 
-  SafeAreaView, 
-  ScrollView, 
-  StatusBar, 
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
   Image,
-  TouchableOpacity, 
-  Dimensions} from 'react-native'
-import React , { useState } from 'react';
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
+import React, {useState} from 'react';
 import Colors from '../Const/Colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { BuyButton } from '../Components/BuyButton';
+import {BuyButton} from '../Components/BuyButton';
 
 const {width, height} = Dimensions.get('window');
 const frameWidth = width;
 // const columnWidth = frameWidth / 3;
 
-const DetailsScreen = ({ navigation, route}) => {
+const DetailsScreen = ({navigation, route}) => {
   const [size, setSize] = useState('small');
   const [showFullDescription, setShowFullDescription] = useState(false);
-  const description = "Lorem ipsum dolor sit amet. Ut maxime saepe in reiciendis cupiditate aut error fuga. Est consequatur velit eum voluptatum molestiae non quibusdam consequatur in aperiam quos et internos nobis et nulla odit aut voluptatum quas.";
+  const description =
+    'Lorem ipsum dolor sit amet. Ut maxime saepe in reiciendis cupiditate aut error fuga. Est consequatur velit eum voluptatum molestiae non quibusdam consequatur in aperiam quos et internos nobis et nulla odit aut voluptatum quas.';
 
-  const ToggleDescription = () =>{
-      setShowFullDescription (!showFullDescription)
-  }
+  const ToggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
 
   const item = route.params;
   return (
@@ -153,13 +155,14 @@ const DetailsScreen = ({ navigation, route}) => {
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   background: {
-    flex:1,
+    flex: 1,
     backgroundColor: Colors.light,
-    height:height,
+    height: height,
+    width: width,
   },
 
   footerPrice: {
@@ -240,7 +243,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     justifyContent: 'center',
     marginHorizontal: 110,
-    alignItems:'center'
+    alignItems: 'center',
   },
 
   heart: {

@@ -1,117 +1,143 @@
 import {
-    StyleSheet,
-    Text,
-    View,
-    SafeAreaView,
-    StatusBar,
-    Image,
-    TouchableOpacity,
-} from 'react-native'
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  StatusBar,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import Colors from '../Const/Colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import SwitchButton from '../Components/SwitchButton';
 import CartAmountToggle from '../Components/CartAmountToggle';
 
-const Order = ({ navigation, route }) => {
+const {width, height} = Dimensions.get('window');
 
-    const item = route.params;
-    
-    return (
-        <SafeAreaView>
-            <View style={styles.background}>
-                <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
-                <View style={styles.header}>
-                    <Icon name="arrow-back-ios" size={28} onPress={() => navigation.goBack()} />
-                    <Text style={styles.order}> Order </Text>
-                </View>
-                <SwitchButton />
-                <View style={styles.Container1}>
-                    <Text style={styles.head}>Delivery Address</Text>
-                    <Text style={styles.body}>Jl. Kpg Sutoyo</Text>
-                    <Text style={styles.foot}>Kpg Sutoyo No 620, Bilzen, Tanjungbalai.</Text>
-                    <View style={styles.editAdd} underlayColor="#DDDDDD">
-                        <TouchableOpacity style={styles.addEditBtn}>
-                            <Image source={require('../Assets/Images/order/G.png')} style={styles.ImgG} />
-                            <Text style={styles.editAddText}>Edit Address</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.addNoteBtn}>
-                            <Image source={require('../Assets/Images/order/A.png')} style={styles.ImgA} />
-                            <Text style={styles.addNoteText}>Add Note</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.hairlineWidth}>
-                        <Text>_______________________________________________________</Text>
-                    </View>
-                    <View style={styles.pdtDetail}>
-                        <Image source={item.image} style={styles.image} />
-                        <View style={styles.detail}>
-                            <Text style={styles.name}>{item.name}</Text>
-                            <Text style={styles.ingredients}>{item.ingredients}</Text>
-                        </View>
-                        <CartAmountToggle />
+const Order = ({navigation, route}) => {
+  const item = route.params;
 
-                    </View>
-
-
-                </View>
-                <View style={styles.hairlineWidth}>
-                    <Text>_________________________________________________________________</Text>
-                </View>
-                <View style={styles.Container2} >
-                    <TouchableOpacity style={styles.discountBtn}>
-                        <Image source={require('../Assets/Images/order/E.png')} style={styles.ImgE} />
-                        <Text style={styles.discountText}>1 Discount is Applied</Text>
-                        <Image source={require('../Assets/Images/order/H.png')} style={styles.ImgH} />
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.paymentContainer}>
-                    <Text style={styles.head}> Payment Summary</Text>
-                    <View style={styles.price}>
-                        <Text style={styles.priceTxt}> Price </Text>
-                        <Text style={styles.priceAmt}>{item.price}</Text>
-                    </View>
-                    <View style={styles.delivery}>
-                        <Text style={styles.priceTxt}> Delivery Fee</Text>
-                        <Text style={styles.deliveryAmtchange}>$2.0</Text>
-                        <Text style={styles.deliveryAmt}>{item.delivery}</Text>
-
-                    </View>
-                    <View style={styles.hairlineWidth}>
-                        <Text>_______________________________________________________</Text>
-                    </View>
-                    <View style={styles.total}>
-                        <Text style={styles.priceTxt}>Total Payment</Text>
-                        <Text></Text>
-                    </View>
-                    
-                </View>
-                <View style={styles.hairlineWidthBottom}>
-                    <Text>_________________________________________________________________</Text>
-                </View>
-                <View style={styles.orderContainer}>
-                    <TouchableOpacity>
-                         <Image source={require('../Assets/Images/order/B.png')} style={styles.orderImg}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.cashBtn}>
-                        <Text style={styles.cashTxt}>Cash</Text>
-                        
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.optionBtn}>
-                        <Image source={require('../Assets/Images/order/F.png')} style={styles.option}/>
-                    </TouchableOpacity>
-                </View>
-                <TouchableOpacity style={styles.orderBtn}>
-                    <Text style={styles.orderBtnTxt}>Order</Text>
-                </TouchableOpacity>
+  return (
+    <SafeAreaView>
+      <View style={styles.background}>
+        <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
+        <View style={styles.header}>
+          <Icon
+            name="arrow-back-ios"
+            size={28}
+            onPress={() => navigation.goBack()}
+          />
+          <Text style={styles.order}> Order </Text>
+        </View>
+        <SwitchButton />
+        <View style={styles.Container1}>
+          <Text style={styles.head}>Delivery Address</Text>
+          <Text style={styles.body}>Jl. Kpg Sutoyo</Text>
+          <Text style={styles.foot}>
+            Kpg Sutoyo No 620, Bilzen, Tanjungbalai.
+          </Text>
+          <View style={styles.editAdd} underlayColor="#DDDDDD">
+            <TouchableOpacity style={styles.addEditBtn}>
+              <Image
+                source={require('../Assets/Images/order/G.png')}
+                style={styles.ImgG}
+              />
+              <Text style={styles.editAddText}>Edit Address</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.addNoteBtn}>
+              <Image
+                source={require('../Assets/Images/order/A.png')}
+                style={styles.ImgA}
+              />
+              <Text style={styles.addNoteText}>Add Note</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.hairlineWidth}>
+            <Text>_______________________________________________________</Text>
+          </View>
+          <View style={styles.pdtDetail}>
+            <Image source={item.image} style={styles.image} />
+            <View style={styles.detail}>
+              <Text style={styles.name}>{item.name}</Text>
+              <Text style={styles.ingredients}>{item.ingredients}</Text>
             </View>
-        </SafeAreaView>
-    )
-}
+            <CartAmountToggle />
+          </View>
+        </View>
+        <View style={styles.hairlineWidth}>
+          <Text>
+            _________________________________________________________________
+          </Text>
+        </View>
+        <View style={styles.Container2}>
+          <TouchableOpacity style={styles.discountBtn}>
+            <Image
+              source={require('../Assets/Images/order/E.png')}
+              style={styles.ImgE}
+            />
+            <Text style={styles.discountText}>1 Discount is Applied</Text>
+            <Image
+              source={require('../Assets/Images/order/H.png')}
+              style={styles.ImgH}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.paymentContainer}>
+          <Text style={styles.head}> Payment Summary</Text>
+          <View style={styles.price}>
+            <Text style={styles.priceTxt}> Price </Text>
+            <Text style={styles.priceAmt}>{item.price}</Text>
+          </View>
+          <View style={styles.delivery}>
+            <Text style={styles.priceTxt}> Delivery Fee</Text>
+            <Text style={styles.deliveryAmtchange}>$2.0</Text>
+            <Text style={styles.deliveryAmt}>{item.delivery}</Text>
+          </View>
+          <View style={styles.hairlineWidth}>
+            <Text>_______________________________________________________</Text>
+          </View>
+          <View style={styles.total}>
+            <Text style={styles.priceTxt}>Total Payment</Text>
+            <Text></Text>
+          </View>
+        </View>
+        <View style={styles.hairlineWidthBottom}>
+          <Text>
+            _________________________________________________________________
+          </Text>
+        </View>
+        <View style={styles.orderContainer}>
+          <TouchableOpacity>
+            <Image
+              source={require('../Assets/Images/order/B.png')}
+              style={styles.orderImg}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.cashBtn}>
+            <Text style={styles.cashTxt}>Cash</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.optionBtn}>
+            <Image
+              source={require('../Assets/Images/order/F.png')}
+              style={styles.option}
+            />
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity style={styles.orderBtn}>
+          <Text style={styles.orderBtnTxt}>Order</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   background: {
     backgroundColor: Colors.light,
+    height: height,
+    width: width,
   },
 
   editAddText: {
@@ -230,7 +256,7 @@ const styles = StyleSheet.create({
   head: {
     fontSize: 18,
     fontWeight: '900',
-    paddingBottom: 10,
+    marginBottom: 10,
     color: Colors.dark,
   },
 

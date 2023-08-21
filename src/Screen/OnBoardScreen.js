@@ -6,8 +6,9 @@ import {
   Dimensions,
   StatusBar,
   Animated,
+  Image,
+  TouchableOpacity,
 } from 'react-native';
-import Btn from '../Components/GoogleButton';
 
 const {width, height} = Dimensions.get('screen');
 const Imgheight = height - 350;
@@ -39,25 +40,38 @@ const OnBoardScreen = props => {
         style={[styles.backgroundImage, {transform: [{rotate: RotateData}]}]}
       />
 
-        <Text style={styles.Header}>
-          Food so good, your taste buds will love it.
-        </Text>
-        <Text style={styles.body}>
+      <Text style={styles.Header}>
+        Food so good, your taste buds will love it.
+      </Text>
+      <Text style={styles.body}>
         The best meals, the finest snacks, the powerful flavour.
-        </Text>
-        <Btn
+      </Text>
+      {/* <Btn
           Press={() => {
             props.navigation.navigate('HomeScreen');
           }}
-        />
+        /> */}
+
+      <View style={styles.google}>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('HomeScreen')}
+          style={styles.btn}>
+          <View style={styles.container}>
+            <Image
+              style={styles.img}
+              source={require('../Assets/Images/google.png')}
+            />
+            <Text style={styles.txt}> Continue with Google</Text>
+          </View>
+        </TouchableOpacity>
       </View>
-    
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   background: {
-    flex:1,
+    flex: 1,
     backgroundColor: 'black',
     height: '100%',
   },
@@ -65,11 +79,6 @@ const styles = StyleSheet.create({
   backgroundImage: {
     height: Imgheight,
     width: width,
-  },
-
-  imagePosition: {
-    // position: 'absolute',
-    marginVertical: 100,
   },
 
   Header: {
@@ -107,6 +116,38 @@ const styles = StyleSheet.create({
     fontSize: 40,
     marginTop: 30,
     color: 'black',
+  },
+
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  img: {
+    marginRight: 10,
+    height: 40,
+    width: 40,
+    alignSelf: 'auto',
+  },
+
+  google: {
+    alignItems: 'center',
+  },
+
+  btn: {
+    backgroundColor: 'white',
+    borderRadius: 8,
+    height: 55,
+    width: width - 30,
+    justifyContent: 'center',
+  },
+
+  txt: {
+    color: '#777',
+    fontSize: 23,
+    fontWeight: '400',
+    textAlign: 'center',
   },
 });
 

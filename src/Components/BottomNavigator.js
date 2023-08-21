@@ -1,5 +1,5 @@
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../Const/Colors';
 import HomeScreen from '../Screen/HomeScreen';
@@ -10,7 +10,6 @@ import Favourite from '../Screen/Favourite';
 const Tab = createBottomTabNavigator();
 
 const BottomNavigator = () => {
-
   return (
     <Tab.Navigator
       screenOptions={{
@@ -60,6 +59,6 @@ const BottomNavigator = () => {
       />
     </Tab.Navigator>
   );
-}
+};
 
 export default BottomNavigator;

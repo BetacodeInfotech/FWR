@@ -83,7 +83,6 @@ const HomeScreen = props => {
       <TouchableHighlight
         activeOpacity={0.8}
         underlayColor="#DDDDDD"
-        // style={styles.container}
         onPress={() => props.navigation.navigate('DetailsScreen', food)}>
         <View style={styles.card}>
           <View style={styles.foodImg}>
@@ -112,49 +111,57 @@ const HomeScreen = props => {
   return (
     <View style={styles.screen}>
       <StatusBar backgroundColor={'transparent'} translucent={true} />
-      <Image
-        source={require('../Assets/Images/2131.jpg')}
-        style={styles.topImage}
-      />
 
-      <Animated.Image
-        source={require('../Assets/Images/Flywheel.jpg')}
-        onLoad={animate}
-        style={[styles.avatar, {transform: [{rotate: RotateData}]}]}
-      />
+      <View style={styles.backGround}>
+        <View style={styles.head}>
+          <TouchableOpacity>
+            <View style={styles.locationBtn}>
+              <Text style={styles.locationButton}>Location</Text>
+              <Text style={styles.address}> Bilzen,Tanjungbalai</Text>
+            </View>
+          </TouchableOpacity>
 
-      <TouchableOpacity>
-        <View style={styles.locationBtn}>
-          <Text style={styles.locationButton}>Location</Text>
-          <Text style={styles.address}> Bilzen,Tanjungbalai</Text>
-        </View>
-      </TouchableOpacity>
-
-      <View style={styles.ab}>
-        <TextInput
-          style={styles.input}
-          placeholder="Search menu"
-          onChangeText={val => setLocation(val)}
-        />
-
-        <TouchableOpacity style={styles.btn}>
-          <Image
-            source={require('../Assets/Images/settings.png')}
-            style={styles.setting}
+          <Animated.Image
+            source={require('../Assets/Images/Flywheel.jpg')}
+            onLoad={animate}
+            style={[styles.avatar, {transform: [{rotate: RotateData}]}]}
           />
-        </TouchableOpacity>
+        </View>
+
+        <View style={styles.ab}>
+          <View style={styles.container}>
+            <TextInput
+              style={styles.input}
+              placeholder="Search menu"
+              onChangeText={val => setLocation(val)}
+            />
+
+            <TouchableOpacity style={styles.btn}>
+              <Image
+                source={require('../Assets/Images/settings.png')}
+                style={styles.setting}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.container2}>
+          <TouchableOpacity activeOpacity={0.8}>
+            <Image
+              source={require('../Assets/Images/New/Thali1.jpg')}
+              style={styles.ImgBtn}
+            />
+
+            <Image
+              source={require('../Assets/Images/Promo.png')}
+              style={styles.promo}
+            />
+
+            <Text style={styles.ImgText}>Special Veg Thali</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <TouchableOpacity activeOpacity={0.8}>
-        <Image
-          source={require('../Assets/Images/New/Thali1.jpg')}
-          style={styles.firstImgBtn}
-        />
-        <Text style={styles.firstImgText}>Special Veg Thali</Text>
-        <Image
-          source={require('../Assets/Images/Promo.png')}
-          style={styles.promo}
-        />
-      </TouchableOpacity>
+
       <View>
         <ListCategories />
       </View>
@@ -170,50 +177,58 @@ const HomeScreen = props => {
 
 const styles = StyleSheet.create({
   screen: {
-    // height: '100%',
     flex: 1,
     backgroundColor: 'white',
+    width: width,
+  },
+
+  backGround: {
+    backgroundColor: Colors.dark,
+    height: 305,
   },
 
   ab: {
     flexDirection: 'row',
+    justifyContent: 'center',
+  },
+
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: `#808080`,
+    width: width - 46,
+    borderRadius: 10,
+  },
+
+  container2: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+
+  head: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 
   locationBtn: {
     marginVertical: 20,
     marginHorizontal: 10,
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
   },
 
   promo: {
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    position: 'absolute',
-    marginVertical: -170,
-    marginHorizontal: 55,
     borderRadius: 7,
     height: 30,
     width: 90,
+    marginTop: -180,
+    marginLeft: 20,
   },
 
-  firstImgBtn: {
-    flex: 1,
-    flexDirection: 'row',
-    position: 'absolute',
-    marginVertical: -185,
-    marginHorizontal: 31,
+  ImgBtn: {
     height: 200,
-    width: 350,
+    marginTop: 40,
+    width: width - 40,
     borderRadius: 30,
-  },
-
-  topImage: {
-    backgroundColor: '#808080',
-    height: '40%',
-    position: 'absolute',
   },
 
   search: {
@@ -222,51 +237,44 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
-  firstImgText: {
+  ImgText: {
     color: 'white',
     fontSize: 40,
     fontWeight: 'bold',
-    marginHorizontal: 55,
-    position: 'absolute',
-    marginVertical: -120,
+    marginLeft: 20,
+    marginTop: 25,
+    width: 220,
     textDecorationLine: 'underline',
     backgroundColor: 'black',
   },
 
   avatar: {
-    position: 'absolute',
     height: 50,
     width: 50,
-    marginVertical: 50,
-    marginHorizontal: 328,
+    marginTop: 50,
+    marginLeft: 150,
     borderRadius: 10,
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
   },
 
   locationButton: {
     color: 'white',
     fontSize: 15,
     paddingLeft: 20,
-    paddingTop: 35,
-    paddingRight: 200,
+    marginTop: 35,
+    // marginRight: 200,
   },
 
   address: {
     color: 'white',
     fontSize: 17,
-    paddingLeft: 18,
+    marginLeft: 15,
   },
 
   input: {
     backgroundColor: `#808080`,
-    marginVertical: 160,
-    width: 350,
+    width: 320,
     borderRadius: 10,
-    marginHorizontal: 30,
-    marginTop: 90,
-    marginBottom: 230,
+    // marginTop: 5,
     fontSize: 20,
   },
 
@@ -277,13 +285,12 @@ const styles = StyleSheet.create({
   },
 
   btn: {
-    position: 'absolute',
-    marginVertical: 93,
-    marginHorizontal: 336,
+    // marginVertical:10,
   },
 
   categoriesListContainer: {
     paddingVertical: 30,
+    marginTop: 90,
     alignItems: 'center',
     paddingHorizontal: 20,
   },
@@ -374,7 +381,8 @@ const styles = StyleSheet.create({
 
   rating: {
     flexDirection: 'row',
-    position: 'absolute',
+    marginTop: -130,
+    marginBottom: 100,
   },
 
   star: {
