@@ -39,7 +39,6 @@ const OnBoardScreen = props => {
         style={[styles.backgroundImage, {transform: [{rotate: RotateData}]}]}
       />
 
-      <View style={styles.imagePosition}>
         <Text style={styles.Header}>
           Food so good, your taste buds will love it.
         </Text>
@@ -52,12 +51,13 @@ const OnBoardScreen = props => {
           }}
         />
       </View>
-    </View>
+    
   );
 };
 
 const styles = StyleSheet.create({
   background: {
+    flex:1,
     backgroundColor: 'black',
     height: '100%',
   },
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
   },
 
   imagePosition: {
-    position: 'absolute',
-    marginVertical: 400,
+    // position: 'absolute',
+    marginVertical: 100,
   },
 
   Header: {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 45,
     color: 'white',
     textAlign: 'center',
-    paddingTop: 95,
+    marginTop: -30,
   },
 
   body: {
