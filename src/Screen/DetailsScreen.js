@@ -13,7 +13,7 @@ import Colors from '../Const/Colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { BuyButton } from '../Components/BuyButton';
 
-const {width} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 const frameWidth = width;
 // const columnWidth = frameWidth / 3;
 
@@ -157,7 +157,9 @@ const DetailsScreen = ({ navigation, route}) => {
 
 const styles = StyleSheet.create({
   background: {
+    flex:1,
     backgroundColor: Colors.light,
+    height:height,
   },
 
   footerPrice: {
@@ -226,7 +228,7 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    marginTop: 60,
+    marginTop: 40,
     marginBottom: 35,
     flexDirection: 'row',
     alignItems: 'center',

@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
 
   header: {
     // flex:1,
-    marginTop: 60,
+    marginTop: 40,
     marginBottom: 35,
     flexDirection: 'row',
     alignItems: 'center',
