@@ -46,11 +46,6 @@ const OnBoardScreen = props => {
       <Text style={styles.body}>
         The best meals, the finest snacks, the powerful flavour.
       </Text>
-      {/* <Btn
-          Press={() => {
-            props.navigation.navigate('HomeScreen');
-          }}
-        /> */}
 
       <View style={styles.google}>
         <TouchableOpacity
@@ -79,6 +74,8 @@ const styles = StyleSheet.create({
   backgroundImage: {
     height: Imgheight,
     width: width,
+    marginTop:20,
+    marginBottom:20,
   },
 
   Header: {

@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import Colors from '../Const/Colors';
@@ -20,17 +21,17 @@ const Order = ({navigation, route}) => {
   const item = route.params;
 
   return (
-    <SafeAreaView>
-      <View style={styles.background}>
-        <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
-        <View style={styles.header}>
-          <Icon
-            name="arrow-back-ios"
-            size={28}
-            onPress={() => navigation.goBack()}
-          />
-          <Text style={styles.order}> Order </Text>
-        </View>
+    <SafeAreaView style={styles.background}>
+      <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
+      <View style={styles.header}>
+        <Icon
+          name="arrow-back-ios"
+          size={28}
+          onPress={() => navigation.goBack()}
+        />
+        <Text style={styles.order}> Order </Text>
+      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <SwitchButton />
         <View style={styles.Container1}>
           <Text style={styles.head}>Delivery Address</Text>
@@ -128,13 +129,14 @@ const Order = ({navigation, route}) => {
         <TouchableOpacity style={styles.orderBtn}>
           <Text style={styles.orderBtnTxt}>Order</Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   background: {
+    flex: 1,
     backgroundColor: Colors.light,
     height: height,
     width: width,
@@ -230,7 +232,7 @@ const styles = StyleSheet.create({
   header: {
     // flex:1,
     marginTop: 40,
-    marginBottom: 35,
+    marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
     marginHorizontal: 25,

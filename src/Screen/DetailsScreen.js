@@ -15,7 +15,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {BuyButton} from '../Components/BuyButton';
 
 const {width, height} = Dimensions.get('window');
-const frameWidth = width;
+// const frameWidth = width;
 // const columnWidth = frameWidth / 3;
 
 const DetailsScreen = ({navigation, route}) => {
@@ -29,6 +29,7 @@ const DetailsScreen = ({navigation, route}) => {
   };
 
   const item = route.params;
+  
   return (
     <SafeAreaView style={styles.background}>
       <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />

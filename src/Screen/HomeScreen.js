@@ -261,7 +261,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     paddingLeft: 20,
     marginTop: 35,
-    // marginRight: 200,
   },
 
   address: {
