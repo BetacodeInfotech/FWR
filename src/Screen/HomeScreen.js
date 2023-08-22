@@ -18,7 +18,7 @@ import Colors from '../Const/Colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {categories} from '../Const/categories';
 
-const {width} = Dimensions.get('screen');
+const {width, height} = Dimensions.get('screen');
 const cardWidth = width / 2 - 20;
 
 //Make the whole page scrollable below the location and profile tab.
@@ -98,7 +98,6 @@ const HomeScreen = props => {
           </View>
           <View style={styles.price}>
             <Text style={styles.foodPrice}>{food.price}</Text>
-            {/* <Icon name="add" size={20} style={styles.addToCartBtn}/> */}
           </View>
           <View style={styles.addToCartBtn}>
             <Icon name="add" size={22} color={Colors.white} />
@@ -144,33 +143,40 @@ const HomeScreen = props => {
             </TouchableOpacity>
           </View>
         </View>
-
-        <View style={styles.container2}>
-          <TouchableOpacity activeOpacity={0.8}>
-            <Image
-              source={require('../Assets/Images/New/Thali1.jpg')}
-              style={styles.ImgBtn}
-            />
-
-            <Image
-              source={require('../Assets/Images/Promo.png')}
-              style={styles.promo}
-            />
-
-            <Text style={styles.ImgText}>Special Veg Thali</Text>
-          </TouchableOpacity>
-        </View>
       </View>
 
-      <View>
-        <ListCategories />
-      </View>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        numColumns={2}
-        data={foods}
-        renderItem={({item}) => <Card food={item} />}
-      />
+      
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={styles.container3}>
+            
+          <View style={styles.container2}>
+            <TouchableOpacity activeOpacity={0.8}>
+              <Image
+                source={require('../Assets/Images/New/Thali1.jpg')}
+                style={styles.ImgBtn}
+              />
+
+              <Image
+                source={require('../Assets/Images/Promo.png')}
+                style={styles.promo}
+              />
+
+              <Text style={styles.ImgText}>Special Veg Thali</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View>
+            <ListCategories />
+          </View>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            numColumns={2}
+            data={foods}
+            renderItem={({item}) => <Card food={item} />}
+          />
+        </ScrollView>
+      
     </View>
   );
 };
@@ -201,14 +207,18 @@ const styles = StyleSheet.create({
   },
 
   container2: {
-    alignItems: 'center',
+    // alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
   },
 
+  container3:{
+    marginTop:-110,
+  },
+
   head: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    // flexWrap: 'wrap',
   },
 
   locationBtn: {
@@ -220,15 +230,16 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     height: 30,
     width: 90,
-    marginTop: -180,
+    // marginBottom:30,
+    marginTop: -10,
     marginLeft: 20,
   },
 
   ImgBtn: {
-    height: 200,
-    marginTop: 40,
+    height: 220,
     width: width - 40,
     borderRadius: 30,
+    marginBottom:-200,
   },
 
   search: {
@@ -242,7 +253,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     marginLeft: 20,
-    marginTop: 25,
+    marginTop: 5,
     width: 220,
     textDecorationLine: 'underline',
     backgroundColor: 'black',
@@ -283,10 +294,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
-  btn: {
-    // marginVertical:10,
-  },
-
   categoriesListContainer: {
     paddingVertical: 30,
     marginTop: 90,
@@ -303,6 +310,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 5,
     flexDirection: 'row',
+    // marginTop:-40,
   },
 
   categoryText: {
