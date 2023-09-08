@@ -52,29 +52,32 @@ const styles = StyleSheet.create({
   },
 
   switchBtn: {
-    width: '85%',
+    // width: '85%',
     height: 50,
-    borderRadius: 15,
+    borderRadius: 10,
     borderWidth: 0.5,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     paddingLeft: 2,
     paddingRight: 2,
-    backgroundColor: Colors.light,
+    backgroundColor: Colors.white,
   },
 
   touch1: {
-    width: '50%',
+    width: '45%',
     height: 45,
-    borderRadius: 15,
+    borderRadius: 10,
+
     justifyContent: 'center',
     alignItems: 'center',
   },
 
   touch2: {
-    width: '50%',
+    width: '45%',
     height: 45,
-    borderRadius: 15,
+    borderRadius: 10,
+    marginLeft:10,
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -35,9 +35,9 @@ const Order = ({navigation, route}) => {
         <SwitchButton />
         <View style={styles.Container1}>
           <Text style={styles.head}>Delivery Address</Text>
-          <Text style={styles.body}>Jl. Kpg Sutoyo</Text>
+          <Text style={styles.body}>Jack </Text>
           <Text style={styles.foot}>
-            Kpg Sutoyo No 620, Bilzen, Tanjungbalai.
+          3rd floor, KS Tower, Noida 
           </Text>
           <View style={styles.editAdd} underlayColor="#DDDDDD">
             <TouchableOpacity style={styles.addEditBtn}>
@@ -55,9 +55,7 @@ const Order = ({navigation, route}) => {
               <Text style={styles.addNoteText}>Add Note</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.hairlineWidth}>
-            <Text>_______________________________________________________</Text>
-          </View>
+          <View style={styles.hairlineWidth} />
           <View style={styles.pdtDetail}>
             <Image source={item.image} style={styles.image} />
             <View style={styles.detail}>
@@ -67,11 +65,7 @@ const Order = ({navigation, route}) => {
             <CartAmountToggle />
           </View>
         </View>
-        <View style={styles.hairlineWidth}>
-          <Text>
-            _________________________________________________________________
-          </Text>
-        </View>
+        <View style={styles.hairlineWidth} />
         <View style={styles.Container2}>
           <TouchableOpacity style={styles.discountBtn}>
             <Image
@@ -96,19 +90,13 @@ const Order = ({navigation, route}) => {
             <Text style={styles.deliveryAmtchange}>$2.0</Text>
             <Text style={styles.deliveryAmt}>{item.delivery}</Text>
           </View>
-          <View style={styles.hairlineWidth}>
-            <Text>_______________________________________________________</Text>
-          </View>
+          <View style={styles.hairlineWidth} />
           <View style={styles.total}>
             <Text style={styles.priceTxt}>Total Payment</Text>
             <Text></Text>
           </View>
         </View>
-        <View style={styles.hairlineWidthBottom}>
-          <Text>
-            _________________________________________________________________
-          </Text>
-        </View>
+        <View style={styles.hairlineWidth} />
         <View style={styles.orderContainer}>
           <TouchableOpacity>
             <Image
@@ -137,9 +125,9 @@ const Order = ({navigation, route}) => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: Colors.light,
-    height: height,
-    width: width,
+    backgroundColor: Colors.white,
+    // height: height,
+    // width: width,
   },
 
   editAddText: {
@@ -235,24 +223,26 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 25,
+    justifyContent: 'row',
+    marginHorizontal: 10,
   },
 
   order: {
     flexDirection: 'row',
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: 'bold',
     justifyContent: 'center',
-    marginHorizontal: 110,
+    color: Colors.grey,
+    //ya marginHorizontal: 110,
   },
 
   Container1: {
     marginTop: 30,
-    marginHorizontal: 30,
+    marginHorizontal: 10,
   },
 
   Container2: {
-    marginHorizontal: 30,
+    marginHorizontal: 10,
   },
 
   head: {
@@ -320,11 +310,11 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 
-  hairlineWidth: {
-    justifyContent: 'center',
-    flexDirection: 'row',
-    paddingBottom: 15,
-  },
+  // hairlineWidth: {
+  //   justifyContent: 'center',
+  //   flexDirection: 'row',
+  //   paddingBottom: 15,
+  // },
 
   hairlineWidthBottom: {
     justifyContent: 'center',
@@ -355,14 +345,22 @@ const styles = StyleSheet.create({
     marginLeft: 30,
   },
 
+  hairlineWidth: {
+    height: 1,
+    backgroundColor: 'gray',
+    // marginHorizontal: 40,
+    margin: 10,
+    // paddingBottom: 15,
+  },
+
   paymentContainer: {
     marginTop: 20,
-    marginHorizontal: 30,
+    marginHorizontal: 10,
   },
 
   orderContainer: {
     flexDirection: 'row',
-    marginLeft: 35,
+    marginLeft: 10,
     marginBottom: 10,
     marginTop: 5,
   },
@@ -408,7 +406,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginTop: 4,
     borderWidth: 0.5,
-    marginLeft: 35,
+    marginLeft: 10,
     marginBottom: 10,
   },
 

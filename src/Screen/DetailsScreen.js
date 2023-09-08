@@ -34,12 +34,17 @@ const DetailsScreen = ({navigation, route}) => {
     <SafeAreaView style={styles.background}>
       <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
       <View style={styles.header}>
+        <View style={{
+          flexDirection:"row"
+        }}>
+
         <Icon
           name="arrow-back-ios"
           size={28}
           onPress={() => navigation.goBack()}
-        />
+          />
         <Text style={styles.detail}> Detail </Text>
+          </View>
         <TouchableOpacity>
           <Image
             source={require('../Assets/Images/details/heart.png')}
@@ -56,8 +61,11 @@ const DetailsScreen = ({navigation, route}) => {
           <Text style={styles.Ingredients}>{item.ingredients}</Text>
         </View>
         <View style={styles.rating}>
+          <View style={{flexDirection:"row"}}>
           <Image style={styles.star} source={item.ratingImage} />
           <Text style={styles.number}> {item.rating} </Text>
+
+          </View>
           <Image
             source={require('../Assets/Images/details/beans.png')}
             style={styles.bean}
@@ -67,9 +75,7 @@ const DetailsScreen = ({navigation, route}) => {
             style={styles.pack}
           />
         </View>
-        <View style={styles.hairlineWidth}>
-          <Text>____________________________________________________</Text>
-        </View>
+        <View style={styles.hairlineWidth}/>
         <View style={styles.about}>
           <Text style={styles.description}>Description</Text>
           <Text style={styles.data}>
@@ -161,9 +167,9 @@ const DetailsScreen = ({navigation, route}) => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: Colors.light,
-    height: height,
-    width: width,
+    backgroundColor: Colors.white,
+    // height: height,
+    // width: width,
   },
 
   footerPrice: {
@@ -179,7 +185,7 @@ const styles = StyleSheet.create({
 
   footer: {
     // marginTop:1,
-    marginHorizontal: 40,
+    marginHorizontal: 10,
     flexDirection: 'row',
   },
 
@@ -227,29 +233,32 @@ const styles = StyleSheet.create({
 
   btn: {
     flexDirection: 'row',
-    marginHorizontal: 40,
+    marginHorizontal: 10,
     paddingTop: 8,
   },
 
   header: {
     marginTop: 40,
-    marginBottom: 35,
+    marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 20,
+    justifyContent: 'space-between',
+    marginHorizontal: 10,
   },
 
   detail: {
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: 'bold',
     justifyContent: 'center',
-    marginHorizontal: 110,
+    // marginHorizontal: 110,
     alignItems: 'center',
   },
 
   heart: {
-    height: 30,
-    width: 33,
+    height: 25,
+    width: 25,
+    tintColor: 'red',
+    // marginRight:5,
   },
 
   item: {
@@ -269,17 +278,19 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: 'black',
     fontWeight: 'bold',
-    marginHorizontal: 38,
+    marginHorizontal: 10,
   },
 
   Ingredients: {
-    marginHorizontal: 38,
+    marginHorizontal: 10,
     fontSize: 16,
   },
 
   rating: {
     flexDirection: 'row',
-    marginHorizontal: 35,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginHorizontal: 10,
     paddingTop: 15,
     paddingBottom: 18,
   },
@@ -299,7 +310,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     marginVertical: -18,
-    marginHorizontal: 15,
+    marginHorizontal: 10,
   },
 
   pack: {
@@ -310,13 +321,15 @@ const styles = StyleSheet.create({
   },
 
   hairlineWidth: {
-    justifyContent: 'center',
-    marginHorizontal: 40,
-    paddingBottom: 15,
+    height: 1,
+    backgroundColor: 'gray',
+    // marginHorizontal: 40,
+    margin: 10,
+    // paddingBottom: 15,
   },
 
   about: {
-    marginHorizontal: 40,
+    marginHorizontal: 10,
   },
 
   description: {
@@ -337,7 +350,7 @@ const styles = StyleSheet.create({
   },
 
   size: {
-    marginHorizontal: 40,
+    marginHorizontal: 10,
     fontSize: 20,
     fontWeight: '700',
     color: 'black',

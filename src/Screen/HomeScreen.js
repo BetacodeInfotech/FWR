@@ -88,20 +88,26 @@ const HomeScreen = props => {
           <View style={styles.foodImg}>
             <Image source={food.image} style={styles.img} />
           </View>
-          <View style={styles.rating}>
+
+          <View style={styles.foodContainer}>
+            <View>
+
+            <Text style={styles.foodName}>{food.name}</Text>
+            <Text style={styles.foodIngredients}>{food.ingredients}</Text>
+            </View>
+            <View style={styles.rating}>
             <Image source={food.ratingImage} style={styles.star} />
             <Text style={styles.number}>{food.rating}</Text>
           </View>
-          <View style={styles.foodContainer}>
-            <Text style={styles.foodName}>{food.name}</Text>
-            <Text style={styles.foodIngredients}>{food.ingredients}</Text>
           </View>
           <View style={styles.price}>
             <Text style={styles.foodPrice}>{food.price}</Text>
+                 <View style={styles.addToCartBtn}>
+             <Icon name="add" size={22} color={Colors.white} />
+           
           </View>
-          <View style={styles.addToCartBtn}>
-            <Icon name="add" size={22} color={Colors.white} />
           </View>
+     
         </View>
       </TouchableHighlight>
     );
@@ -109,17 +115,15 @@ const HomeScreen = props => {
 
   return (
     <View style={styles.screen}>
-      <StatusBar backgroundColor={'transparent'} translucent={true} />
+      <StatusBar backgroundColor={'#000'} translucent={true} />
 
       <View style={styles.backGround}>
-        <View style={styles.head}>
+        {/* <View style={styles.head}> */}
+        <View style={styles.locationBtn}>
           <TouchableOpacity>
-            <View style={styles.locationBtn}>
-              <Text style={styles.locationButton}>Location</Text>
-              <Text style={styles.address}> Bilzen,Tanjungbalai</Text>
-            </View>
+            <Text style={styles.locationButton}>Location</Text>
+            <Text style={styles.address}> Bilzen,Tanjungbalai</Text>
           </TouchableOpacity>
-
           <Animated.Image
             source={require('../Assets/Images/Flywheel.jpg')}
             onLoad={animate}
@@ -127,56 +131,55 @@ const HomeScreen = props => {
           />
         </View>
 
-        <View style={styles.ab}>
-          <View style={styles.container}>
-            <TextInput
-              style={styles.input}
-              placeholder="Search menu"
-              onChangeText={val => setLocation(val)}
-            />
+        {/* </View> */}
 
-            <TouchableOpacity style={styles.btn}>
-              <Image
-                source={require('../Assets/Images/settings.png')}
-                style={styles.setting}
-              />
-            </TouchableOpacity>
-          </View>
+        <View style={[styles.container]}>
+          {/* <View style={styles.container}> */}
+          <TextInput
+            style={styles.input}
+            placeholder="Search menu"
+            // onChangeText={val => setLocation(val)}
+          />
+
+          <TouchableOpacity style={styles.btn}>
+            <Image
+              source={require('../Assets/Images/settings.png')}
+              style={styles.setting}
+            />
+          </TouchableOpacity>
+          {/* </View> */}
         </View>
       </View>
 
-      
-        <ScrollView
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={styles.container3}>
+        <View style={styles.container2}>
+          <TouchableOpacity activeOpacity={0.8}>
+            <Image
+              source={require('../Assets/Images/New/Thali1.jpg')}
+              style={styles.ImgBtn}
+            />
+
+            <Image
+              source={require('../Assets/Images/Promo.png')}
+              style={styles.promo}
+            />
+
+            <Text style={styles.ImgText}>Special Veg Thali</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* <View> */}
+         { ListCategories()}
+        {/* </View> */}
+        <FlatList
           showsVerticalScrollIndicator={false}
-          style={styles.container3}>
-            
-          <View style={styles.container2}>
-            <TouchableOpacity activeOpacity={0.8}>
-              <Image
-                source={require('../Assets/Images/New/Thali1.jpg')}
-                style={styles.ImgBtn}
-              />
-
-              <Image
-                source={require('../Assets/Images/Promo.png')}
-                style={styles.promo}
-              />
-
-              <Text style={styles.ImgText}>Special Veg Thali</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View>
-            <ListCategories />
-          </View>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            numColumns={2}
-            data={foods}
-            renderItem={({item}) => <Card food={item} />}
-          />
-        </ScrollView>
-      
+          // numColumns={2}
+          data={foods}
+          renderItem={({item}) => <Card food={item} />}
+        />
+      </ScrollView>
     </View>
   );
 };
@@ -185,12 +188,13 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: 'white',
-    width: width,
+    // width: width,
   },
 
   backGround: {
     backgroundColor: Colors.dark,
     height: 305,
+    borderRadius:5
   },
 
   ab: {
@@ -201,9 +205,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: `#808080`,
-    width: width - 46,
+    justifyContent: 'space-between',
+    // backgroundColor: `#808080`,
+    // width: width - 200,
     borderRadius: 10,
+    
+    marginHorizontal: 5,
   },
 
   container2: {
@@ -212,8 +219,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  container3:{
-    marginTop:-110,
+  container3: {
+    marginTop: -90,
   },
 
   head: {
@@ -222,8 +229,12 @@ const styles = StyleSheet.create({
   },
 
   locationBtn: {
-    marginVertical: 20,
+    marginVertical: 35,
     marginHorizontal: 10,
+    // padding: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
   promo: {
@@ -231,15 +242,16 @@ const styles = StyleSheet.create({
     height: 30,
     width: 90,
     // marginBottom:30,
-    marginTop: -10,
-    marginLeft: 20,
+    // marginTop: -10,
+    marginLeft: 10,
+    padding: 10,
   },
 
   ImgBtn: {
     height: 220,
-    width: width - 40,
-    borderRadius: 30,
-    marginBottom:-200,
+    width: width - 10,
+    borderRadius: 5,
+    marginBottom: -200,
   },
 
   search: {
@@ -250,39 +262,41 @@ const styles = StyleSheet.create({
 
   ImgText: {
     color: 'white',
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: 'bold',
-    marginLeft: 20,
-    marginTop: 5,
+    marginLeft: 10,
+    // padding:10,
+    // marginTop: 5,
     width: 220,
     textDecorationLine: 'underline',
-    backgroundColor: 'black',
+    // backgroundColor: 'black',
   },
 
   avatar: {
     height: 50,
     width: 50,
-    marginTop: 50,
-    marginLeft: 150,
-    borderRadius: 10,
+    // marginTop: 50,
+    // marginLeft: 150,
+    // borderRadius: 10,
   },
 
   locationButton: {
     color: 'white',
     fontSize: 15,
-    paddingLeft: 20,
-    marginTop: 35,
+    // paddingLeft: 20,
+    // marginTop: 35,
   },
 
   address: {
     color: 'white',
     fontSize: 17,
-    marginLeft: 15,
+    // marginLeft: 15,
   },
 
   input: {
-    backgroundColor: `#808080`,
-    width: 320,
+    backgroundColor: "#808080",
+    color:"white",
+    width: width - 60,
     borderRadius: 10,
     // marginTop: 5,
     fontSize: 20,
@@ -296,9 +310,9 @@ const styles = StyleSheet.create({
 
   categoriesListContainer: {
     paddingVertical: 30,
-    marginTop: 90,
+    marginTop: 80,
     alignItems: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
 
   categorybtn: {
@@ -319,17 +333,22 @@ const styles = StyleSheet.create({
   },
 
   foodContainer: {
-    marginHorizontal: 10,
-    underlayColor: Colors.white,
+    // marginHorizontal: 10,
+    // underlayColor: Colors.white,
+    flexDirection:"row",
+    justifyContent:"space-between",
+    alignItem:"center"
+
   },
 
   card: {
-    height: 220,
-    width: cardWidth,
-    marginHorizontal: 10,
+    // height: 300,
+    // width: cardWidth,
+    // marginHorizontal: 10,
     marginBottom: 20,
-    marginTop: 5,
-    borderRadius: 15,
+    padding:10,
+    // marginTop: 5,
+    borderRadius: 5,
     elevation: 13,
     backgroundColor: 'white',
   },
@@ -339,9 +358,11 @@ const styles = StyleSheet.create({
   },
 
   img: {
-    width: 185,
+    width: width-10,
     height: 130,
-    borderRadius: 15,
+    borderRadius: 5,
+    // marginBottom: 20,
+    marginHorizontal: 10,
   },
 
   foodName: {
@@ -358,16 +379,17 @@ const styles = StyleSheet.create({
   },
 
   price: {
-    marginTop: 7,
+    // marginTop: 7,
     marginHorizontal: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
+
   },
 
   foodPrice: {
-    fontSize: 20,
+    // fontSize: 20,
     color: 'black',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
   },
 
   addBtn: {
@@ -379,8 +401,8 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30,
     borderRadius: 10,
-    marginVertical: -30,
-    marginHorizontal: 150,
+    // marginVertical: -30,
+    // marginHorizontal: 150,
     backgroundColor: Colors.sienna,
     justifyContent: 'center',
     alignItems: 'center',
@@ -388,8 +410,8 @@ const styles = StyleSheet.create({
 
   rating: {
     flexDirection: 'row',
-    marginTop: -130,
-    marginBottom: 100,
+    // marginTop: -130,
+    // marginBottom: 100,
   },
 
   star: {
